@@ -7,13 +7,19 @@ class Controller:
         self._view = view
         # the model, which implements the logic of the program and holds the data
         self._model = model
+        self._diz_corsi = {}
 
-    def handle_hello(self, e):
-        """Simple function to handle a button-pressed event,
-        and consequently print a message on screen"""
-        name = self._view.txt_name.value
-        if name is None or name == "":
-            self._view.create_alert("Inserire il nome")
-            return
-        self._view.txt_result.controls.append(ft.Text(f"Hello, {name}!"))
+    def handle_DDcorsi(self):
+        corsi_trovati = self._model.get_corsi()
+        for corso in corsi_trovati:
+            self._view.ddCorso.options.append(ft.dropdown.Option(key=corso.codins, text=corso.__str__()))
         self._view.update_page()
+
+    def handleCercaIscritti(self):
+        pass
+
+    def handleCercaStudente(self):
+        pass
+
+    def handleCercaCorsi(self):
+        pass
