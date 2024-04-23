@@ -6,6 +6,7 @@ class View(ft.UserControl):
     def __init__(self, page: ft.Page):
         super().__init__()
         # page stuff
+        self.txt_result = None
         self._page = page
         self._page.title = "Lab O5 - segreteria studenti"
         self._page.horizontal_alignment = 'CENTER'
@@ -30,7 +31,7 @@ class View(ft.UserControl):
         self._page.controls.append(self._title)
 
         #ROW 1
-        self.ddCorso = ft.Dropdown(label="Corso", width=500)
+        self.ddCorso = ft.Dropdown(label="Corso", width=500, options=[], on_change=self.controller.leggi_corso)
         self._controller.handle_DDcorsi()
         self.btn_cerca_iscritti = ft.ElevatedButton(text="Cerca Iscritti", on_click=self.controller.handleCercaIscritti)
 

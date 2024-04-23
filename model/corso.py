@@ -1,4 +1,3 @@
-
 import dataclasses
 
 @dataclasses.dataclass
@@ -40,11 +39,13 @@ class Corso:
     # def pd(self, pd):
     #     self.pd = pd
 
+
+
     def __eq__(self, other):
-        pass
+        return self.codins == other.codins
 
     def __hash__(self):
-        pass
+        return hash(self.codins)
 
     def __str__(self):
         return self.nome
